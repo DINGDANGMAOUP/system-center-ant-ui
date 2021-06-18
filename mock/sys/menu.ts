@@ -14,6 +14,27 @@ const dashboardRoute = {
   },
 };
 
+const generator = {
+    path: '/factory',
+    name: 'Factory',
+    component: 'LAYOUT',
+    redirect: '/factory/gen',
+    meta: {
+      title: 'routes.factory.factory',
+      icon: 'bx:bx-cube-alt',
+    },
+    children: [
+      {
+        path: 'gen',
+        name: 'Generator',
+        component: '/factory/gen/index',
+        meta: {
+          title: 'routes.factory.generator',
+        },
+      },
+    ]
+}
+
 const backRoute = {
   path: 'back',
   name: 'PermissionBackDemo',
@@ -184,10 +205,10 @@ export default [
       }
       const id = checkUser.userId;
       if (!id || id === '1') {
-        return resultSuccess([dashboardRoute, authRoute, levelRoute, sysRoute]);
+        return resultSuccess([dashboardRoute, generator, authRoute, levelRoute, sysRoute]);
       }
       if (id === '2') {
-        return resultSuccess([dashboardRoute, authRoute, levelRoute]);
+        return resultSuccess([dashboardRoute, generator, authRoute, levelRoute]);
       }
     },
   },
