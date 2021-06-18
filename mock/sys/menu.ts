@@ -33,7 +33,7 @@ const generator = {
         },
       },
     ]
-}
+};
 
 const backRoute = {
   path: 'back',
@@ -137,54 +137,54 @@ const sysRoute = {
   redirect: '/system/account',
   meta: {
     icon: 'ion:settings-outline',
-    title: 'routes.demo.system.moduleName',
+    title: 'routes.system.system.moduleName',
   },
   children: [
     {
       path: 'account',
       name: 'AccountManagement',
       meta: {
-        title: 'routes.demo.system.account',
+        title: 'routes.system.system.account',
         ignoreKeepAlive: true,
       },
-      component: '/demo/system/account/index',
+      component: '/system/account/index',
     },
     {
       path: 'role',
       name: 'RoleManagement',
       meta: {
-        title: 'routes.demo.system.role',
+        title: 'routes.system.system.role',
         ignoreKeepAlive: true,
       },
-      component: '/demo/system/role/index',
+      component: '/system/role/index',
     },
 
     {
       path: 'menu',
       name: 'MenuManagement',
       meta: {
-        title: 'routes.demo.system.menu',
+        title: 'routes.system.system.menu',
         ignoreKeepAlive: true,
       },
-      component: '/demo/system/menu/index',
+      component: '/system/menu/index',
     },
     {
       path: 'dept',
       name: 'DeptManagement',
       meta: {
-        title: 'routes.demo.system.dept',
+        title: 'routes.system.system.dept',
         ignoreKeepAlive: true,
       },
-      component: '/demo/system/dept/index',
+      component: '/system/dept/index',
     },
     {
       path: 'changePassword',
       name: 'ChangePassword',
       meta: {
-        title: 'routes.demo.system.password',
+        title: 'routes.system.system.password',
         ignoreKeepAlive: true,
       },
-      component: '/demo/system/password/index',
+      component: '/system/password/index',
     },
   ],
 };
@@ -205,10 +205,10 @@ export default [
       }
       const id = checkUser.userId;
       if (!id || id === '1') {
-        return resultSuccess([dashboardRoute, generator, authRoute, levelRoute, sysRoute]);
+        return resultSuccess([dashboardRoute, generator, sysRoute]);
       }
       if (id === '2') {
-        return resultSuccess([dashboardRoute, generator, authRoute, levelRoute]);
+        return resultSuccess([dashboardRoute, generator]);
       }
     },
   },
