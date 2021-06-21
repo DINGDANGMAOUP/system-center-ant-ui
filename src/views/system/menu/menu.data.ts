@@ -50,6 +50,7 @@ export const columns: BasicColumn[] = [
     dataIndex: 'createTime',
     width: 180,
   },
+
 ];
 
 const isDir = (type: string) => type === '0';
@@ -126,7 +127,11 @@ export const formSchema: FormSchema[] = [
     required: true,
     show: ({ values }) => !isButton(values.type),
   },
-
+  {
+    field: 'test',
+    label: '测试',
+    component: 'Input',
+  },
   {
     field: 'routePath',
     label: '路由地址',

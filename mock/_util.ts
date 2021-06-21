@@ -19,7 +19,7 @@ export function resultPageSuccess<T = any>(
 
   return {
     ...resultSuccess({
-      items: pageData,
+      records: pageData,
       total: list.length,
     }),
     message,
