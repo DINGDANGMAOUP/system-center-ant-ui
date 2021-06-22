@@ -148,7 +148,7 @@
           const userInfo = await userStore.login(
             toRaw({
               password: data.password,
-              username: data.account,
+              account: data.account,
               mode: 'none', //不要默认的错误提示
             })
           );

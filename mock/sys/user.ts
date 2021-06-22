@@ -5,7 +5,7 @@ export function createFakeUserList() {
   return [
     {
       userId: '1',
-      username: 'vben',
+      account: 'vben',
       realName: 'kuroneko',
       avatar: '',
       desc: 'manager',
@@ -20,7 +20,7 @@ export function createFakeUserList() {
     },
     {
       userId: '2',
-      username: 'test',
+      account: 'test',
       password: '123456',
       realName: 'test user',
       avatar: 'https://q1.qlogo.cn/g?b=qq&nk=339449197&s=640',
@@ -48,14 +48,14 @@ export default [
     timeout: 200,
     method: 'post',
     response: ({ body }) => {
-      const { username, password } = body;
+      const { account, password } = body;
       const checkUser = createFakeUserList().find(
-        (item) => item.username === username && password === item.password
+        (item) => item.account === account && password === item.password
       );
       if (!checkUser) {
         return resultError('Incorrect account or password！');
       }
-      const { userId, username: _username, token, realName, desc, roles } = checkUser;
+      const { userId, account: _username, token, realName, desc, roles } = checkUser;
       return resultSuccess({
         roles,
         userId,
