@@ -2,7 +2,7 @@
  * @description: Login interface parameters
  */
 export interface LoginParams {
-  username: string;
+  account: string;
   password: string;
 }
 
@@ -30,7 +30,7 @@ export interface GetUserInfoModel {
   // 用户名
   username: string;
   // 真实名字
-  realName: string;
+  nickname: string;
   // 头像
   avatar: string;
   // 介绍

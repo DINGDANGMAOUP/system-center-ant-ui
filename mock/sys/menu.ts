@@ -15,120 +15,27 @@ const dashboardRoute = {
 };
 
 const generator = {
-    path: '/factory',
-    name: 'Factory',
-    component: 'LAYOUT',
-    redirect: '/factory/gen',
-    meta: {
-      title: 'routes.factory.factory',
-      icon: 'bx:bx-cube-alt',
-    },
-    children: [
-      {
-        path: 'gen',
-        name: 'Generator',
-        component: '/factory/gen/index',
-        meta: {
-          title: 'routes.factory.generator',
-        },
-      },
-    ]
-};
-
-const backRoute = {
-  path: 'back',
-  name: 'PermissionBackDemo',
+  path: '/factory',
+  name: 'Factory',
+  component: 'LAYOUT',
+  redirect: '/factory/gen',
   meta: {
-    title: 'routes.demo.permission.back',
+    title: 'routes.factory.factory',
+    icon: 'bx:bx-cube-alt',
   },
-
   children: [
     {
-      path: 'page',
-      name: 'BackAuthPage',
-      component: '/demo/permission/back/index',
+      path: 'gen',
+      name: 'Generator',
+      component: '/factory/gen/index',
       meta: {
-        title: 'routes.demo.permission.backPage',
-      },
-    },
-    {
-      path: 'btn',
-      name: 'BackAuthBtn',
-      component: '/demo/permission/back/Btn',
-      meta: {
-        title: 'routes.demo.permission.backBtn',
+        title: 'routes.factory.generator',
       },
     },
   ],
 };
 
-const authRoute = {
-  path: '/permission',
-  name: 'Permission',
-  component: 'LAYOUT',
-  redirect: '/permission/front/page',
-  meta: {
-    icon: 'carbon:user-role',
-    title: 'routes.demo.permission.permission',
-  },
-  children: [backRoute],
-};
 
-const levelRoute = {
-  path: '/level',
-  name: 'Level',
-  component: 'LAYOUT',
-  redirect: '/level/menu1/menu1-1',
-  meta: {
-    icon: 'carbon:user-role',
-    title: 'routes.demo.level.level',
-  },
-
-  children: [
-    {
-      path: 'menu1',
-      name: 'Menu1Demo',
-      meta: {
-        title: 'Menu1',
-      },
-      children: [
-        {
-          path: 'menu1-1',
-          name: 'Menu11Demo',
-          meta: {
-            title: 'Menu1-1',
-          },
-          children: [
-            {
-              path: 'menu1-1-1',
-              name: 'Menu111Demo',
-              component: '/demo/level/Menu111',
-              meta: {
-                title: 'Menu111',
-              },
-            },
-          ],
-        },
-        {
-          path: 'menu1-2',
-          name: 'Menu12Demo',
-          component: '/demo/level/Menu12',
-          meta: {
-            title: 'Menu1-2',
-          },
-        },
-      ],
-    },
-    {
-      path: 'menu2',
-      name: 'Menu2Demo',
-      component: '/demo/level/Menu2',
-      meta: {
-        title: 'Menu2',
-      },
-    },
-  ],
-};
 
 const sysRoute = {
   path: '/system',
@@ -191,7 +98,7 @@ const sysRoute = {
 
 export default [
   {
-    url: '/basic-api/getMenuList',
+    url: '/getMenuList',
     timeout: 1000,
     method: 'get',
     response: (request: requestParams) => {

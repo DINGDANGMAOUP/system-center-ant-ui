@@ -6,7 +6,7 @@ export function createFakeUserList() {
     {
       userId: '1',
       username: 'vben',
-      realName: 'kuroneko',
+      nickname: 'kuroneko',
       avatar: '',
       desc: 'manager',
       password: '123456',
@@ -22,7 +22,7 @@ export function createFakeUserList() {
       userId: '2',
       username: 'test',
       password: '123456',
-      realName: 'test user',
+      nickname: 'test user',
       avatar: 'https://q1.qlogo.cn/g?b=qq&nk=339449197&s=640',
       desc: 'tester',
       token: 'fakeToken2',
@@ -44,30 +44,30 @@ const fakeCodeList: any = {
 export default [
   // mock user login
   {
-    url: '/basic-api/login',
+    url: '/login',
     timeout: 200,
     method: 'post',
     response: ({ body }) => {
-      const { username, password } = body;
+      const { account, password } = body;
       const checkUser = createFakeUserList().find(
-        (item) => item.username === username && password === item.password
+        (item) => item.username === account && password === item.password
       );
       if (!checkUser) {
         return resultError('Incorrect account or password！');
       }
-      const { userId, username: _username, token, realName, desc, roles } = checkUser;
+      const { userId, username: _username, token, nickname, desc, roles } = checkUser;
       return resultSuccess({
         roles,
         userId,
         username: _username,
         token,
-        realName,
+        nickname,
         desc,
       });
     },
   },
   {
-    url: '/basic-api/getUserInfo',
+    url: '/getUserInfo',
     method: 'get',
     response: (request: requestParams) => {
       const token = getRequestToken(request);
@@ -80,7 +80,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/getPermCode',
+    url: '/getPermCode',
     timeout: 200,
     method: 'get',
     response: (request: requestParams) => {

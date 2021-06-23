@@ -24,10 +24,10 @@ const roleList = (() => {
     result.push({
       id: index + 1,
       orderNo: `${index + 1}`,
-      roleName: ['超级管理员', '管理员', '文章管理员', '普通用户'][index],
-      roleValue: '@first',
+      remark: ['超级管理员', '管理员', '文章管理员', '普通用户'][index],
+      name: '@first',
       createTime: '@datetime',
-      remark: '@cword(10,20)',
+      desc: '@cword(10,20)',
       'status|1': ['0', '1'],
     });
   }
@@ -39,7 +39,7 @@ const deptList = (() => {
   for (let index = 0; index < 3; index++) {
     result.push({
       id: `${index}`,
-      deptName: ['华东分部', '华南分部', '西北分部'][index],
+      name: ['华东分部', '华南分部', '西北分部'][index],
       orderNo: index + 1,
       createTime: '@datetime',
       remark: '@cword(10,20)',
@@ -49,12 +49,12 @@ const deptList = (() => {
         for (let j = 0; j < 4; j++) {
           children.push({
             id: `${index}-${j}`,
-            deptName: ['研发部', '市场部', '商务部', '财务部'][j],
+            name: ['研发部', '市场部', '商务部', '财务部'][j],
             orderNo: j + 1,
             createTime: '@datetime',
             remark: '@cword(10,20)',
             'status|1': ['0', '1'],
-            parentDept: `${index}`,
+            parentId: `${index}`,
             children: undefined,
           });
         }
@@ -135,7 +135,7 @@ const menuList = (() => {
 
 export default [
   {
-    url: '/basic-api/system/getAccountList',
+    url: '/user/getAccountList',
     timeout: 100,
     method: 'get',
     response: ({ query }) => {
@@ -144,7 +144,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/system/getRoleListByPage',
+    url: '/system/getRoleListByPage',
     timeout: 100,
     method: 'get',
     response: ({ query }) => {
@@ -153,7 +153,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/system/setRoleStatus',
+    url: '/role/setRoleStatus',
     timeout: 500,
     method: 'post',
     response: ({ query }) => {
@@ -162,7 +162,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/system/getAllRoleList',
+    url: '/role/getAllRoleList',
     timeout: 100,
     method: 'get',
     response: () => {
@@ -170,7 +170,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/system/getDeptList',
+    url: '/dept/getDeptList',
     timeout: 100,
     method: 'get',
     response: () => {
@@ -178,7 +178,7 @@ export default [
     },
   },
   {
-    url: '/basic-api/system/getMenuList',
+    url: '/system/getMenuList',
     timeout: 100,
     method: 'get',
     response: () => {
