@@ -6,7 +6,7 @@ const accountList = (() => {
   for (let index = 0; index < 20; index++) {
     result.push({
       id: `${index}`,
-      account: '@first',
+      name: '@first',
       email: '@email',
       nickname: '@cname()',
       role: '@first',
